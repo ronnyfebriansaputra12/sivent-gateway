@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Account;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class GroupMenuController extends Controller
 {
@@ -15,7 +16,8 @@ class GroupMenuController extends Controller
      */
     public function index(Request $request)
     {
-        return $this->get(env('ACCOUNT') . 'group-menu');
+        $response = $this->get(env('ACCOUNT') . 'group-menu');
+        return $response;
     }
 
     /**
@@ -26,7 +28,8 @@ class GroupMenuController extends Controller
      */
     public function store(Request $request)
     {
-        return $this->post(env('ACCOUNT') . 'group-menu/add', $request->all());
+        $response =  $this->post(env('ACCOUNT') . 'group-menu/add', $request->all());
+        return $response;
     }
 
     /**
@@ -37,8 +40,8 @@ class GroupMenuController extends Controller
      */
     public function edit($id)
     {
-
-        return $this->get(env('ACCOUNT') . 'group-menu/edit/' . $id);
+        $response = $this->get(env('ACCOUNT') . 'group-menu/edit/' . $id);
+        return $response;
     }
 
     /**
@@ -50,7 +53,8 @@ class GroupMenuController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return $this->put(env('ACCOUNT') . 'group-menu/update/' . $id, $request->all());
+        $response = $this->put(env('ACCOUNT') . 'group-menu/update/' . $id, $request->all());
+        return $response;
     }
 
     /**
@@ -61,7 +65,7 @@ class GroupMenuController extends Controller
      */
     public function destroy(Request $request)
     {
-
-        return $this->delete(env('ACCOUNT') . 'group-menu/delete', $request->all());
+        $response = $this->delete(env('ACCOUNT') . 'group-menu/delete', $request->all());
+        return $response;
     }
 }

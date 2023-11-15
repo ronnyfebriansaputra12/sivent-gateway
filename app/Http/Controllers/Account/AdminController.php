@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Account;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class MenuController extends Controller
+class AdminController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,9 +14,8 @@ class MenuController extends Controller
      */
     public function index()
     {
-        return $this->get(env('ACCOUNT') . 'menu');
+        return $this->get(env('ACCOUNT') . 'admin');
     }
-
 
     /**
      * Store a newly created resource in storage.
@@ -25,7 +25,7 @@ class MenuController extends Controller
      */
     public function store(Request $request)
     {
-        return $this->post(env('ACCOUNT').'menu/add',$request->all());
+        return $this->post(env('ACCOUNT') . 'admin/add', $request->all());
     }
 
 
@@ -37,7 +37,7 @@ class MenuController extends Controller
      */
     public function edit($id)
     {
-        return $this->get(env('ACCOUNT').'menu/edit/'.$id);
+        return $this->get(env('ACCOUNT') . 'admin/edit/' . $id);
     }
 
     /**
@@ -49,7 +49,7 @@ class MenuController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return $this->put(env('ACCOUNT').'menu/update/'.$id,$request->all());
+        return $this->put(env('ACCOUNT') . 'admin/update/' . $id, $request->all());
     }
 
     /**
@@ -60,6 +60,6 @@ class MenuController extends Controller
      */
     public function destroy(Request $request)
     {
-        return $this->delete(env('ACCOUNT').'menu/delete',$request->all());
+        return $this->delete(env('ACCOUNT') . 'admin/delete', $request->all());
     }
 }
